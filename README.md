@@ -1,4 +1,2 @@
 
-Next frame prediction of Game Of Life.
-
-https://arxiv.org/pdf/2009.01398
+Project studying convergence for Game Of Life based on paper [Springer, J. & Kenyon, G. (2009)](https://arxiv.org/pdf/2009.01398)
