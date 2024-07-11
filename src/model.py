@@ -1,7 +1,7 @@
 import tensorflow as tf
 import keras
 
-def build_model(board_shape, overcompleteness = 1, seed = None):
+def build_model(board_shape, overcompleteness = 1, seed = None, optimizer = "Adam"):
     seed_gen = keras.random.SeedGenerator(seed)
     model = keras.Sequential()
     model.add(keras.layers.Input((*board_shape, 1)))
@@ -29,7 +29,7 @@ def build_model(board_shape, overcompleteness = 1, seed = None):
     ))
 
     model.compile(
-        optimizer = keras.optimizers.Adam(0.01, 0.9, 0.999),
+        optimizer = optimizer,
         loss = keras.losses.BinaryCrossentropy(from_logits=False)
     )
     return model

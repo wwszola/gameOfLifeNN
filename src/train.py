@@ -11,7 +11,8 @@ if __name__ == "__main__":
     ds = random_uniform(0.38, (32766, *board_shape), 0)
     ds = ds.batch(16)
     for i in range(64):
-        model = build_model(board_shape, 1, i)
+        optimizer = keras.optimizers.SGD(0.01)
+        model = build_model(board_shape, 1, i, optimizer)
         # model.summary()
 
         early_stopping = keras.callbacks.EarlyStopping(monitor="loss", patience=1, verbose=1)
