@@ -11,7 +11,7 @@ if __name__ == "__main__":
     ds = random_uniform(0.38, (32766, *board_shape), 0)
     ds = ds.batch(16)
     for i in range(64):
-        model = build_model(board_shape, 3)
+        model = build_model(board_shape, 1, i)
         # model.summary()
 
         early_stopping = keras.callbacks.EarlyStopping(monitor="loss", patience=1, verbose=1)
@@ -19,7 +19,7 @@ if __name__ == "__main__":
             ds,
             epochs = 32,
             callbacks = [early_stopping],
-            verbose = 0
+            verbose = 1
         )
         loss = min(history.history["loss"])
         print(i, "done with loss", loss)
