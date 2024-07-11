@@ -8,7 +8,7 @@ losses = []
 
 if __name__ == "__main__":
     board_shape = (16, 16)
-    ds = random_uniform(0.38, (32766, *board_shape))
+    ds = random_uniform(0.38, (32766, *board_shape), 0)
     ds = ds.batch(16)
     for i in range(64):
         model = build_model(board_shape, 3)
