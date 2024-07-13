@@ -1,10 +1,9 @@
 import tensorflow as tf
 import keras
 
-def build_model(board_shape, overcompleteness = 1, seed = None, optimizer = "Adam"):
+def build_model(overcompleteness = 1, seed = None, optimizer = "Adam"):
     seed_gen = keras.random.SeedGenerator(seed)
     model = keras.Sequential()
-    model.add(keras.layers.Input((*board_shape, 1)))
     model.add(keras.layers.Conv2D(
         filters = 2 * overcompleteness, 
         kernel_size = (3, 3), 
